@@ -1,0 +1,40 @@
+language modelling gives probability of a line to be the correct o/p
+P(W) = P(w1,w2,...wn)
+this is related to a task of computing the probability of an upcoming word
+p(w5|w1,w2,w3,w4) is related with p(w1,w2,w3,w4,w5) 
+any one of these can be a language model
+
+Use chain rule of probability
+p(a|b) = p(a,b)/p(b)
+=> p(a,b,c,d) = p(a)p(b|a)p(c|a,b)p(d|a,b,c)
+this is the chain rule or the conditional probability
+
+P(the|its water is) = count(its water is the)/count(its water is)
+but there are too many sentences in the english language
+
+we use markov assumption
+=> p(the|water is)
+or p(the|is)
+
+p(wi|w1,w2,...w-1) = p(wi|wi-1)
+this is the bigram model,which sees the previous word
+this is used to generate sentences too
+
+p(wi|w1,w2,...w-1) = p(wi|wi)
+this is the unigram model
+
+there are long distance dependencies so sometimes we may not accurately guess the next word
+but mostly we can use n-gram models
+
+p(wi|wi-1) = count(wi-1,wi)/count(wi-1)
+multiply all the the probabilities
+to get the language model by bigrams
+
+bigrams give real world facts
+
+we use log probabilites because
+it avoids underflow(arithmatic as the numbers are small)
+adding is faster than multiplying
+
+p1xp2xp3xp4 = logp1 + logp2 + logp3 + logp4
+google n-gram release can be used
